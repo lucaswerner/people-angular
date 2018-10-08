@@ -1,0 +1,30 @@
+<div class="row">
+  <form class="col s12" [formGroup]="personForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="input-field col s6">
+        <input formControlName="firstName" id="first_name" type="text" class="validate" required minlength="3">
+        <label for="first_name" class="active">First Name</label>
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+          <span *ngIf="firstName.errors.required" class="helper-text" data-success="right">FirstName is required.</span>
+          <span *ngIf="firstName.errors.minlength" class="helper-text" data-success="right">FirstName must be at least
+            3 characters long.</span>
+        </div>
+      </div>
+
+      <div class="input-field col s6">
+        <input formControlName="lastName" id="last_name" type="text" class="validate" required minlength="3">
+        <label for="last_name" class="active">Last Name</label>
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+          <span *ngIf="lastName.errors.required" class="helper-text" data-success="right">LastName is required.</span>
+          <span *ngIf="lastName.errors.minlength" class="helper-text" data-success="right">LastName must be at least
+            3 characters long.</span>
+        </div>
+      </div>
+    </div>
+    <button [disabled]="personForm.invalid" class="btn waves-effect waves-light" type="submit" name="action">{{(id)
+      && 'Edit' || 'Save'}}
+      <i class="material-icons right">send</i>
+    </button>
+    <button (click)="goBack()" class="btn waves-effect waves-light red" type="button">Cancel</button>
+  </form>
+</div>

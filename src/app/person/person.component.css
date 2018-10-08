@@ -1,0 +1,12 @@
+.collection .collection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collection .collection__button {
+    padding: 0;
+    border: 0;
+    background: 0;
+    cursor: pointer;
+}
